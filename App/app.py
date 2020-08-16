@@ -144,6 +144,7 @@ def main():
 if __name__ == "__main__":
     main()
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 <<<<<<< HEAD
@@ -151,4 +152,6 @@ print("Prueba master")
 =======
 print("hola")
 >>>>>>> 54d04d3f09142259a7cdeb0a3c78db45707ecc7a
+>>>>>>> master
+=======
 >>>>>>> master
