@@ -30,7 +30,7 @@ import config as cf
 import sys
 import csv
 from time import process_time 
-
+import numpy
 def loadCSVFile (file, lst, sep=";"):
     """
     Carga un archivo csv a una lista
