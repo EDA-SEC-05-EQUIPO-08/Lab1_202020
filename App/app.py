@@ -159,8 +159,8 @@ def main():
         inputs =input('Seleccione una opción para continuar\n') #leer opción ingresada
         if len(inputs)>0:
             if int(inputs[0])==1: #opcion 1
-                loadCSVFile("Data/SmallMoviesDetailsCleaned.csv", lista) #llamar funcion cargar datos
-                loadCSVFile("Data/MoviesCastingRaw-small.csv", lista_casting) #llamar funcion cargar datos
+                loadCSVFile("Data/AllMoviesDetailsCleaned.csv", lista) #llamar funcion cargar datos
+                loadCSVFile("Data/AllMoviesCastingRaw.csv", lista_casting) #llamar funcion cargar datos
                  #unir dicionarios.
                 for i in range(0,len(lista)):
                      details=lista[i]
