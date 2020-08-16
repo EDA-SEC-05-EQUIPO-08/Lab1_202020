@@ -30,7 +30,7 @@ import config as cf
 import sys
 import csv
 from time import process_time 
-import numpy
+
 def loadCSVFile (file, lst, sep=";"):
     """
     Carga un archivo csv a una lista
@@ -95,6 +95,7 @@ def countElementsFilteredByColumn(criteria, column, lst):
         t1_start = process_time() #tiempo inicial
         counter=0 #Cantidad de repeticiones
         for element in lst:
+            print (element[column].lower())
             if criteria.lower() in element[column].lower(): #filtrar por palabra clave 
                 counter+=1
         t1_stop = process_time() #tiempo final
@@ -122,15 +123,16 @@ def main():
         inputs =input('Seleccione una opción para continuar\n') #leer opción ingresada
         if len(inputs)>0:
             if int(inputs[0])==1: #opcion 1
-                loadCSVFile("Data/test.csv", lista) #llamar funcion cargar datos
+                loadCSVFile("Data/AllMoviesDetailsCleaned.csv", lista) #llamar funcion cargar datos
                 print("Datos cargados, "+str(len(lista))+" elementos cargados")
             elif int(inputs[0])==2: #opcion 2
                 if len(lista)==0: #obtener la longitud de la lista
                     print("La lista esta vacía")    
                 else: print("La lista tiene "+str(len(lista))+" elementos")
+            
             elif int(inputs[0])==3: #opcion 3
                 criteria =input('Ingrese el criterio de búsqueda\n')
-                counter=countElementsFilteredByColumn(criteria, "nombre", lista) #filtrar una columna por criterio  
+                counter=countElementsFilteredByColumn(criteria, "genres", lista) #filtrar una columna por criterio  
                 print("Coinciden ",counter," elementos con el crtierio: ", criteria  )
             elif int(inputs[0])==4: #opcion 4
                 criteria =input('Ingrese el criterio de búsqueda\n')
@@ -142,4 +144,8 @@ def main():
 if __name__ == "__main__":
     main()
 
+<<<<<<< HEAD
 print("Prueba master")
+=======
+print("hola")
+>>>>>>> 54d04d3f09142259a7cdeb0a3c78db45707ecc7a
