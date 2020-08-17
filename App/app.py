@@ -32,8 +32,8 @@ import csv
 from time import process_time 
 
 def loadCSVFile (file, lst, sep=";"):
-    """
-    Carga un archivo csv a una lista
+    
+    """Carga un archivo csv a una lista
     Args:
         file 
             Archivo de texto del cual se cargaran los datos requeridos.
@@ -46,6 +46,7 @@ def loadCSVFile (file, lst, sep=";"):
         Borra la lista e informa al usuario
     Returns: None   
     """
+    
     del lst[:]
     print("Cargando archivo ....")
     t1_start = process_time() #tiempo inicial
@@ -123,7 +124,7 @@ def main():
         inputs =input('Seleccione una opción para continuar\n') #leer opción ingresada
         if len(inputs)>0:
             if int(inputs[0])==1: #opcion 1
-                loadCSVFile("Data/AllMoviesDetailsCleaned.csv", lista) #llamar funcion cargar datos
+                loadCSVFile("Data/test.csv", lista) #llamar funcion cargar datos
                 print("Datos cargados, "+str(len(lista))+" elementos cargados")
             elif int(inputs[0])==2: #opcion 2
                 if len(lista)==0: #obtener la longitud de la lista
