@@ -1,7 +1,7 @@
 # Proyecto base para los desarrollar los laboratorios
 # Integrantes:
 ### Rafael Córdoba L. Codigo:201630880 Correo:rf.cordoba@uniandes.edu.co
-### Sebastián Murcia G. Codigo: Correo:
+### Sebastián Murcia G. Codigo:202015229 Correo:s.murciag@uniandes.edu.co
 # Información:
 *	ADT: archivos Python con la definición de los Tipos Abstractos de Datos.
 *	App: aplicación Python cliente que usa las ADTs y ordenamientos para dar solución a laboratorios y retos.
