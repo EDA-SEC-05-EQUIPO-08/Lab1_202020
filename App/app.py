@@ -157,9 +157,8 @@ def main():
         inputs =input('Seleccione una opción para continuar\n') #leer opción ingresada
         if len(inputs)>0:
             if int(inputs[0])==1: #opcion 1
-<<<<<<< HEAD
-                loadCSVFile("Data/SmallMoviesDetailsCleaned.csv", lista) #llamar funcion cargar datos
-                loadCSVFile("Data/MoviesCastingRaw-small.csv", lista_casting) #llamar funcion cargar datos
+                loadCSVFile("Data/AllMoviesDetailsCleaned.csv", lista) #llamar funcion cargar datos
+                loadCSVFile("Data/AllMoviesCastingRaw.csv", lista_casting) #llamar funcion cargar datos
                  #unir dicionarios.
                 for i in range(0,len(lista)):
                      details=lista[i]
@@ -171,14 +170,6 @@ def main():
                 datos=countElementsByCriteria(criteria, "director_name", lista) #filtrar una columna por criterio  
                 print("Hay %r peliculas buenas del director %r ; el promedio del director es %r " % (datos[1],criteria,datos[0]))
            
-=======
-                loadCSVFile("Data/test.csv", lista) #llamar funcion cargar datos
-                print("Datos cargados, "+str(len(lista))+" elementos cargados")
-            elif int(inputs[0])==2: #opcion 2
-                if len(lista)==0: #obtener la longitud de la lista
-                    print("La lista esta vacía")    
-                else: print("La lista tiene "+str(len(lista))+" elementos")
->>>>>>> master
             elif int(inputs[0])==3: #opcion 3
                 criteria =input('Ingrese el criterio de búsqueda\n')
                 counter=countElementsFilteredByColumn(criteria, "nombre", lista) #filtrar una columna por criterio  
