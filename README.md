@@ -1,4 +1,4 @@
-# Proyecto base para los desarrollar los laboratorios
+# Proyecto base para el desarrollo de laboratorios
 # Integrantes:
 ### Rafael Córdoba L. Codigo:201630880 Correo:rf.cordoba@uniandes.edu.co
 ### Sebastián Murcia G. Codigo:202015229 Correo:s.murciag@uniandes.edu.co
