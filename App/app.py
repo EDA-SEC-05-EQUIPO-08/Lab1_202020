@@ -69,7 +69,7 @@ def printMenu():
     """
     print("\nBienvenido")
     print("1- Cargar Datos")
-    print("2- Contar los elementos de la Lista")
+    print("2- Busqueda de peliculas de un director")
     print("3- Contar elementos filtrados por palabra clave")
     print("4- Consultar elementos a partir de dos listas")
     print("0- Salir")
@@ -102,10 +102,45 @@ def countElementsFilteredByColumn(criteria, column, lst):
     return counter
 
 def countElementsByCriteria(criteria, column, lst):
+
+
+
+
     """
     Retorna la cantidad de elementos que cumplen con un criterio para una columna dada
+
+    
+    Retorna el numero de películas buenas o con votación positiva y el promedio de la votación  
+    Args:
+        criteria:: str
+            Critero sobre el cual se va a contar la cantidad de apariciones
+        column
+            Columna del arreglo sobre la cual se debe realizar el conteo
+        list
+            Lista en la cual se realizará el conteo, debe estar inicializada
+    Return:
+        counter :: int
+            la cantidad de veces ue aparece un elemento con el criterio definido
     """
-    return 0
+    
+    if len(lst)==0:
+        print("La lista esta vacía")  
+        return 0
+    else:
+        t1_start = process_time() #tiempo inicial
+        counter=0 #Cantidad de repeticiones
+        prom=0 #Promedio de votos por director
+        for element in lst:
+            if criteria.lower() in element[column].lower(): #filtrar por director 
+                if 6 < float(element["vote_average"]): #filtrar por buena pelicula 
+                    counter+=1
+                    prom+=float(element["vote_average"])
+        prom*=1/counter
+        t1_stop = process_time() #tiempo final
+        print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
+        dat=[prom,counter]
+    return dat
+
 
 
 def main():
@@ -116,17 +151,25 @@ def main():
     Return: None 
     """
     lista = [] #instanciar una lista vacia
+    lista_casting=[]
     while True:
         printMenu() #imprimir el menu de opciones en consola
         inputs =input('Seleccione una opción para continuar\n') #leer opción ingresada
         if len(inputs)>0:
             if int(inputs[0])==1: #opcion 1
-                loadCSVFile("Data/test.csv", lista) #llamar funcion cargar datos
+                loadCSVFile("Data/AllMoviesDetailsCleaned.csv", lista) #llamar funcion cargar datos
+                loadCSVFile("Data/AllMoviesCastingRaw.csv", lista_casting) #llamar funcion cargar datos
+                 #unir dicionarios.
+                for i in range(0,len(lista)):
+                     details=lista[i]
+                     casting=lista_casting[i]
+                     lista[i]={**lista[i], **lista_casting[i]}
                 print("Datos cargados, "+str(len(lista))+" elementos cargados")
             elif int(inputs[0])==2: #opcion 2
-                if len(lista)==0: #obtener la longitud de la lista
-                    print("La lista esta vacía")    
-                else: print("La lista tiene "+str(len(lista))+" elementos")
+                criteria =input('Ingrese el nombre del director\n')
+                datos=countElementsByCriteria(criteria, "director_name", lista) #filtrar una columna por criterio  
+                print("Hay %r peliculas buenas del director %r ; el promedio del director es %r " % (datos[1],criteria,datos[0]))
+           
             elif int(inputs[0])==3: #opcion 3
                 criteria =input('Ingrese el criterio de búsqueda\n')
                 counter=countElementsFilteredByColumn(criteria, "nombre", lista) #filtrar una columna por criterio  
